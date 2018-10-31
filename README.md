@@ -79,10 +79,9 @@ Word.prototype.anagrams = () => {
 Мы создали веб-приложение, поддерживаемое базой данных. Можем ли мы отследить, каким образом данные передаются через наше приложение? Когда наш сервер получает запрос на показ анаграмм слова, что происходит? Каковы функции модели, представления и контроллера?
 
 
-<!-- 
-[create_table]: http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/SchemaStatements.html#method-i-create_table
 [form animation]: readme-assets/form-animation.gif
 [form on page]: readme-assets/form-on-page.gif
 [word page animation]: readme-assets/word-page-animation.gif
-[partials in handlebars]: https://www.learnhowtoprogram.com/lessons/partials-in-sinatra#cheat-sheet
-[sinatra_partials]: http://www.sinatrarb.com/faq.html#partials -->
+[partials in handlebars]: https://handlebarsjs.com/partials.html
+
+
