@@ -1,10 +1,11 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
-  const Word = sequelize.define('Word', {
-    value: DataTypes.STRING
-  }, {});
-  Word.associate = function(models) {
-    // associations can be defined here
-  };
-  return Word;
-};
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const wordSchema = new Schema({
+  value: String,
+});
+
+// export Word model.
+module.exports = mongoose.model('Word', wordSchema);
