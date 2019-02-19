@@ -29,11 +29,11 @@
 Наше приложение должно найти анаграммы для данного слова. Наша модель `Word`  будет ответственна за эту функцию. Экземпляр класса `Word` вернет свои анаграммы:
 
 ```js
-let Word = require('models/word');
-
-Word.statics.anagrams = () => {
-    // Returns a collection of Word objects that are anagrams
-    // of the instance on which the method is called.
+wordSchema.statics.anagrams = function() {
+    return this.find(
+        // Returns a collection of Word objects that are anagrams
+        // of the instance on which the method is called.
+    );
   }
 
 ```
