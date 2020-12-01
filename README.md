@@ -32,6 +32,8 @@
 
 ```js
 wordSchema.statics.anagrams = function() {
+
+  
     return this.find(
         // Returns a collection of Word objects that are anagrams
         // of the instance on which the method is called.

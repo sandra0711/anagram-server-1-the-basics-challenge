@@ -2,5 +2,9 @@
   <h1>
     {{ word }}
   </h1>
-  <p>The anagrams of "{{ word }}" are ...</p>
+  <p>The anagrams of "{{ word }}" are 
+    {{#each gg}}
+      <p>{{this.value}}</p>
+    {{/each}}
+  </p>
 </main>
