@@ -3,7 +3,7 @@
     {{ word }}
   </h1>
   <p>The anagrams of "{{ word }}" are 
-    {{#each gg}}
+    {{#each anagramsArray}}
       <p>{{this.value}}</p>
     {{/each}}
   </p>

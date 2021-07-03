@@ -1,22 +1,23 @@
-const fs = require('fs').promises;
-const { dbConnect } = require('./dbconnect.js');
+const fs = require("fs").promises;
+
 const mongoose = require('mongoose');
-const { Word } = require('./models/word.js');
-dbConnect(); 
+const { dbConnect } = require('./dbconnect.js');
+const Word = require('./models/word.js');
+dbConnect();
 
-async function seed(path, data) {
-  let wordsFromFile = await fs.readFile(path, 'utf8');
-  let array = String(wordsFromFile).split('\n');
-  await Promise.all(array.map(el => {
-    let obj = { value: el };
-    const word = new Word(obj);
-    return word.save();
-  }));
-}
-let arrayWords = seed('./fixtures/abridged_word_list.txt')
-  
- 
-  
-// mongoose.connection.close(async() => console.log('Connection closed'));
+// const a = Word.anagramsFind('lemon')
+//   .then((data) => console.log(data))
 
 
+fs.readFile('./fixtures/abridged.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  return (data);
+})
+  .then(data => {
+    const reg = /\r\n+/g;
+    const array = data.split(reg);
+    array.forEach(async el => {
+      const wordNew = new Word({ value: el });
+      await wordNew.save();
+    });
+  });

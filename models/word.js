@@ -1,26 +1,13 @@
-'use strict';
-
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const wordSchema = new Schema({
-  value: String,
+const wordSchema = new mongoose.Schema({
+  value: String
 });
 
-wordSchema.statics.anagrams = async function (word) {
-  const words = await this.find();
-  const anagrams = words.filter((item) =>  item.value.split('').sort().join('') === word.split('').sort().join(''))
-  return anagrams;
-}
-
-
-
-
-
-
-
+wordSchema.statics.anagramsFind = async function (val) {
+  const anagrams = await this.find();
+  return anagrams.filter(el => el.value.toLowerCase().split('').sort().join('') === val.toLowerCase().split('').sort().join(''))
+};
 const Word = mongoose.model('Word', wordSchema);
-// export Word model.
-module.exports = { Word };
 
-
+module.exports = Word;

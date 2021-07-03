@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-const dbName = "words";
+const dbName = "word";
+
 const dbPath = `mongodb://localhost:27017/${dbName}`;
 const dbConnect = () => {
   mongoose.connect(dbPath, {
